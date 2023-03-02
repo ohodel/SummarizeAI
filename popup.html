@@ -4,12 +4,62 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" type="text/css" href="styles.css" />
         <title>GPT Summarizer</title>
     </head>
-    <body>
-        <label for="input">Enter text to summarize: </label>
-        <input type="text" id="input" />
-        <button class="summarizeButton">Summarize</button>;
+    <body
+        style="
+            padding: 15px;
+            border: 2px dashed red-orange;
+            width: 450px;
+            display: flex;
+            text-align: center;
+            flex-direction: column;
+            align-items: center;
+        "
+    >
+        <label
+            for="input"
+            style="
+                font-size: 25px;
+                font-weight: bold;
+                font-family: 'Segoe script', Tahoma, Geneva, Verdana, sans-serif;
+            "
+            >Summarize<span style="color: orangered">AI</span></label
+        >
+        <input
+            type="text"
+            id="input"
+            style="
+                height: 30px;
+                width: 100%px;
+                font-size: 16px;
+                padding: 16px 20px;
+                margin-bottom: 15px;
+                box-sizing: border-box;
+                border: 2px solid #ccc;
+                border-radius: 4px;
+                resize: vertical;
+                text-align: center;
+            "
+            wrap="soft"
+        />
+        <button
+            class="summarizeButton"
+            style="
+                padding: 8px 12px;
+                border-radius: 6px;
+                border: none;
+                font-size: 14px;
+                cursor: pointer;
+                background-color: orangered;
+                color: white;
+                font-weight: 400;
+                letter-spacing: 1px;
+            "
+        >
+            Summarize
+        </button>
         <!-- <div class="summary"></div> -->
         <script src="popup.js"></script>
     </body>

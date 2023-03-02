@@ -9,8 +9,18 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 // popup
 document.addEventListener("DOMContentLoaded", () => {
     // when the summarize button is clicked
+
     document.querySelector("button").addEventListener("click", () => {
         let inputText = document.querySelector("#input").value;
+        if (!inputText) {
+            return;
+        }
+        let responseDivs = document.querySelectorAll(".responseContainer");
+        if (responseDivs.length > 0) {
+            responseDivs.forEach((div) => div.remove());
+        }
+        console.log(responseDivs);
+        console.log(inputText);
         console.log(inputText);
         // get the current tab's content and send it to the content for summarization
         chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
@@ -23,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     let url = "https://api.openai.com/v1/completions";
                     //"https://api.openai.com/v1/engines/davinci-codex/completions";
                     let authtoken =
-                        "Bearer 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";
+                        "Bearer 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";
                     xhr.open("POST", url, true);
                     xhr.setRequestHeader("Content-Type", "application/json");
                     xhr.setRequestHeader("Method", "no-cors");
@@ -34,11 +44,21 @@ document.addEventListener("DOMContentLoaded", () => {
                             let summary = JSON.parse(xhr.responseText)[
                                 "choices"
                             ][0]["text"];
-                            console.log(summary);
 
+                            const responseContainer =
+                                document.createElement("div");
+                            responseContainer.className = "responseContainer";
                             const p = document.createElement("p");
-                            p.innerHTML = `GPT says: ${summary}`;
-                            document.querySelector("body").appendChild(p);
+                            const gptSays = document.createElement("h3");
+                            gptSays.innerText = "GPT says: ";
+                            p.style.maxWidth = "fit-content";
+                            p.innerHTML = summary;
+                            gptSays.marginBottom = "0px !important";
+                            responseContainer.appendChild(gptSays);
+                            responseContainer.appendChild(p);
+                            document
+                                .querySelector("body")
+                                .appendChild(responseContainer);
                         }
                     };
                     let data = JSON.stringify({
