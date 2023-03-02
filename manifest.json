@@ -1,0 +1,23 @@
+{
+    "manifest_version": 3,
+    "name": "ChatGPT Summarizer",
+    "version": "1.0",
+    "description": "Uses ChatGPT to summarize the contents of a web page into 1-2 short paragraphs",
+    "permissions": ["activeTab"],
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["content.js"]
+        }
+    ],
+    "action": {
+        "default_icon": "redsnakehead.png",
+        "default_popup": "popup.html"
+    },
+    "icons": {
+        "16": "redsnakehead.png",
+        "32": "redsnakehead.png",
+        "48": "redsnakehead.png",
+        "128": "redsnakehead.png"
+    }
+}
