@@ -11,7 +11,7 @@
         }
     ],
     "action": {
-        "default_icon": "redsnakehead.png",
+        "default_icon": "chatGPT-logo.png",
         "default_popup": "popup.html"
     },
     "icons": {
