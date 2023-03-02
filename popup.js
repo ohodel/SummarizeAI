@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     let url = "https://api.openai.com/v1/completions";
                     //"https://api.openai.com/v1/engines/davinci-codex/completions";
                     let authtoken =
-                        "Bearer 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";
+                        "Bearer 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";
                     xhr.open("POST", url, true);
                     xhr.setRequestHeader("Content-Type", "application/json");
                     xhr.setRequestHeader("Method", "no-cors");
